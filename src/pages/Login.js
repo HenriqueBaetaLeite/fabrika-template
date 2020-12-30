@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import { Form, Input, Card, Row, Col, Divider, Layout, notification, Typography } from 'antd';
+import { Form, Input, Card, Layout, notification, Typography } from 'antd';
 
-const { Header } = Layout;
+
 
 const { Title, Text, Link } = Typography;
 
@@ -51,71 +51,44 @@ const Login = () => {
   };
 
   return (
-    <Layout>
-      <Row>
-        <h2>EM Capital</h2>
-      </Row>
+    <Layout style={{ height: '100vh' }}>
+      <Card className="w-75 mx-auto mt-3">
+        <Form className="p-2 m-2" onFinish={handleSubmit} onFinishFailed={handleSubmitFailed}>
+          <h3 className="text-left">Login</h3>
 
-      <Row align="middle">
-        <Col span={12}>
-          <Card>
-            <h1>Gerencie seu fluxo de caixa</h1>
-            <h3>Acesse de forma ágil e segura</h3>
-          </Card>
-        </Col>
+          <Form.Item
+            name="email"
+            rules={[{ required: true, type: 'email', message: 'Por favor insira um email válido' }]}
+          >
+            <Input onChange={handleChange} placeholder="email" />
+          </Form.Item>
 
-        <Col span={12}>
-          <Card>
-            <Form className="p-2 m-2" onFinish={handleSubmit} onFinishFailed={handleSubmitFailed}>
-              <h3 className="text-left">Fazer Login</h3>
+          <Form.Item
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: 'Por favor insira um password',
+              },
+            ]}
+          >
+            <Input.Password onChange={handleChange} placeholder="senha" />
+          </Form.Item>
 
-              <Form.Item
-                name="email"
-                rules={[
-                  { required: true, type: 'email', message: 'Por favor insira um email válido' },
-                ]}
-              >
-                <Input onChange={handleChange} placeholder="email" />
-              </Form.Item>
+          <Input.Group className="d-flex justify-content-between align-items-center">
+            <small className="text-secondary m-2" style={{ textDecoration: 'underline' }}>
+              Esqueceu sua senha?
+            </small>
+            <button type="submit" className="btn btn-warning m-1">
+              ENTRAR
+            </button>
+          </Input.Group>
 
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Por favor insira um password',
-                  },
-                ]}
-              >
-                <Input.Password onChange={handleChange} placeholder="senha" />
-              </Form.Item>
-
-              <Input.Group className="d-flex justify-content-between align-items-center">
-                <small className="text-secondary m-2" style={{ textDecoration: 'underline' }}>
-                  Esqueceu sua senha?
-                </small>
-                <button type="submit" className="btn btn-warning m-1">
-                  ENTRAR
-                </button>
-              </Input.Group>
-
-              <Divider plain>ou</Divider>
-
-              <button className="btn btn-primary m-2">
-                <i className="fab fa-facebook-square m-1"></i>
-                Entrar
-              </button>
-              <button className="btn btn-danger m-2">
-                <i className="fab fa-google m-1"></i>
-                Entrar
-              </button>
-              <p>
-                Ainda não possui conta?<Link href> Faça Parte!</Link>
-              </p>
-            </Form>
-          </Card>
-        </Col>
-      </Row>
+          <p>
+            Ainda não possui conta?<Link href> Faça Parte!</Link>
+          </p>
+        </Form>
+      </Card>
     </Layout>
   );
 };

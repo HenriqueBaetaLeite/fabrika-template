@@ -32,7 +32,9 @@ const MenuGlobal = () => {
 
   return (
     <Sider collapsible collapsedWidth={0}>
-      <div className="btn btn-danger">LOGO</div>
+      <div className="mt-3 mb-3 btn btn-success">
+        <img src="dsdksjdk" alt="logo" />
+        </div>
 
       <Menu theme={theme} mode="inline" className="mb-3 mt-3" onClick={handleMenu} inlineCollapsed>
         <Menu.Item icon={<MailOutlined />} key="opt1">
