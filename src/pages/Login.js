@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import { Form, Input, Card, Row, Col, Divider, Space, Layout, Button, notification } from 'antd';
+import { Form, Input, Card, Row, Col, Divider, Layout, notification, Typography } from 'antd';
 
 const { Header } = Layout;
+
+const { Title, Text, Link } = Typography;
 
 const Login = () => {
   const history = useHistory();
@@ -107,7 +109,9 @@ const Login = () => {
                 <i className="fab fa-google m-1"></i>
                 Entrar
               </button>
-              <p>Ainda não possui conta? Faça Parte!</p>
+              <p>
+                Ainda não possui conta?<Link href> Faça Parte!</Link>
+              </p>
             </Form>
           </Card>
         </Col>
