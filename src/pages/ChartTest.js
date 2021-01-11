@@ -1,5 +1,8 @@
 import React from 'react';
-import { Line } from '@ant-design/charts';
+import { Rose } from '@ant-design/charts';
+import MenuGlobal from '../components/MenuGlobal';
+import { Layout, Typography } from 'antd';
+const { Title } = Typography;
 
 const ChartTest = () => {
   const data = [
@@ -16,11 +19,13 @@ const ChartTest = () => {
   const config = {
     data,
     height: 400,
+    legend: { position: 'bottom' },
     xField: 'year',
     yField: 'value',
+    interactions: [{ type: 'element-active' }],
     point: {
-      size: 5,
-      shape: 'diamond',
+      size: 8,
+      shape: 'circle',
     },
     label: {
       style: {
@@ -29,10 +34,13 @@ const ChartTest = () => {
     },
   };
   return (
-    <div>
-      <h2>Meu lindo gráfico!</h2>
-      <Line {...config} />
-    </div>
+    <Layout>
+      <MenuGlobal />
+      <Layout style={{ height: '100vh' }}>
+        <Title level={1}>Meu lindo gráfico!</Title>
+        <Rose {...config} chartRef={(chart) => console.log('o que TEREMOS AQUI?', chart)} />
+      </Layout>
+    </Layout>
   );
 };
 export default ChartTest;

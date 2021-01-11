@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import { Form, Input, Card, Layout, notification, Typography } from 'antd';
-
-
+import { Form, Input, Card, Layout, notification, Typography, Button } from 'antd';
 
 const { Title, Text, Link } = Typography;
 
@@ -54,7 +52,7 @@ const Login = () => {
     <Layout style={{ height: '100vh' }}>
       <Card className="w-75 mx-auto mt-3">
         <Form className="p-2 m-2" onFinish={handleSubmit} onFinishFailed={handleSubmitFailed}>
-          <h3 className="text-left">Login</h3>
+          <Title level={1} className="text-left">Login</Title>
 
           <Form.Item
             name="email"
@@ -79,14 +77,14 @@ const Login = () => {
             <small className="text-secondary m-2" style={{ textDecoration: 'underline' }}>
               Esqueceu sua senha?
             </small>
-            <button type="submit" className="btn btn-warning m-1">
+            <Button type="primary" htmlType="submit" className="btn btn-warning m-1">
               ENTRAR
-            </button>
+            </Button>
           </Input.Group>
 
-          <p>
-            Ainda não possui conta?<Link href> Faça Parte!</Link>
-          </p>
+          <Text>
+            Ainda não possui conta?<Link href="/chart"> Faça Parte!</Link>
+          </Text>
         </Form>
       </Card>
     </Layout>
