@@ -1,3 +1,7 @@
+Projeto realizado para a Fábrika de softwares, referente à empresa Em-Capital.
+
+Utilizando o dashboard do CoreUI free React admin
+
 [![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
 [![npm package][npm-coreui-badge]][npm-coreui]
 [![NPM downloads][npm-coreui-download]][npm-coreui]  
