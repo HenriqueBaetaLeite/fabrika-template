@@ -1,4 +1,5 @@
 import React from 'react';
+import { exact } from 'prop-types';
 
 const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
 const Tables = React.lazy(() => import('./views/base/tables/Tables'));
@@ -28,7 +29,10 @@ const Charts = React.lazy(() => import('./views/charts/Charts'));
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 // PRIMEIRA ROTA CUSTOMIZADA
 const Inicial = React.lazy(() => import('./views/inicial/Inicial'));
-const Recebiveis = React.lazy(() => import('./views/recebiveis/Recebiveis'));
+const Recebiveis = React.lazy(() => import('./views/recebiveis/gestor/Recebiveis'));
+const NotaFiscal = React.lazy(() => import('./views/recebiveis/notaFiscal/NotaFiscal'));
+const RelacaoRecebiveis = React.lazy(() => import('./views/recebiveis/relacao/RelacaoRecebiveis'));
+
 const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
 const Flags = React.lazy(() => import('./views/icons/flags/Flags'));
 const Brands = React.lazy(() => import('./views/icons/brands/Brands'));
@@ -45,7 +49,10 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/inicial', name: 'Inicial', component: Inicial },
-  { path: '/recebiveis', name:'Recebiveis', component: Recebiveis },
+  { path: '/recebiveis', name:'Recebiveis', component: Recebiveis, exact: true },
+  { path: '/recebiveis/notafiscal', name: 'Nota Fiscal', component: NotaFiscal },
+  { path: '/recebiveis/relacao', name: 'Relação Recebíveis', component: RelacaoRecebiveis },
+
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },

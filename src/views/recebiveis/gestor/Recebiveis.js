@@ -6,8 +6,6 @@ import {
   CCardHeader,
   CCol,
   CRow,
-  CWidgetBrand,
-  CWidgetSimple,
 } from "@coreui/react";
 
 import { CChart } from "@coreui/react-chartjs";
@@ -67,10 +65,6 @@ const Recebiveis = () => {
               />
               <h4 className="text-dark">Cadastrar Nota Fiscal</h4>
             </div>
-            <div className="d-flex justify-content-around">
-              <p>25</p>
-              <p>R$ 3.000,00</p>
-            </div>
           </CCard>
         </CCol>
       </CRow>
@@ -106,9 +100,9 @@ const Recebiveis = () => {
             <div className="p-2 m-2 d-flex justify-content-around">
               <h4 className="text-dark">Fluxo Financeiro de Entradas</h4>
               <div>
-                <span className="border m-2">30</span>
-                <span className="border m-2">60</span>
-                <span className="border m-2">80</span>
+                <span className="border m-2 p-1">30</span>
+                <span className="border m-2 p-1">60</span>
+                <span className="border m-2 p-1">180</span>
               </div>
             </div>
             <div className="d-flex justify-content-around">
