@@ -26,7 +26,7 @@ const _nav = [
         _tag: "CSidebarNavItem",
         name: "Recebíveis",
         to: "/recebiveis",
-        icon: "cil-dollar",
+        // icon: "cil-dollar",
       },
       {
         _tag: "CSidebarNavItem",
@@ -46,29 +46,79 @@ const _nav = [
     ],
   },
   {
-    _tag: "CSidebarNavItem",
-    name: "Gestor de Contas a Pagar",
-    to: "/theme/typography",
-    icon: "cil-money",
-  },
-  {
     _tag: "CSidebarNavDropdown",
-    name: "Gestor de Carteira",
-    to: "/base/navs",
-    icon: "cil-pencil",
+    name: "Gestor de Contas a Pagar",
+    route: "/contas",
+    icon: "cil-calculator",
     _children: [
       {
         _tag: "CSidebarNavItem",
-        name: "Detalhamento da carteira",
-        to: "/theme/colors",
+        name: "Cadastro de Nota Fiscal",
+        to: "/contas/notafiscal",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Contas a pagar",
+        to: "/contas/pagar",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Cadastro de Domício Bancário",
+        to: "/contas/domicio",
+        icon: "cil-bank",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Cadastro de Fornecedores",
+        to: "/contas/fornecedores",
       },
     ],
   },
   {
-    _tag: "CSidebarNavItem",
+    _tag: "CSidebarNavDropdown",
+    name: "Gestor de Carteira",
+    route: "/carteira",
+    icon: "cil-wallet",
+    _children: [
+      {
+        _tag: "CSidebarNavItem",
+        name: "Carteira",
+        to: "/carteira",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Detalhamento da carteira",
+        to: "/carteira/detalhamento",
+      },
+    ],
+  },
+  {
+    _tag: "CSidebarNavDropdown",
     name: "Investidor",
-    to: "/dashboard",
+    route: "/investidor",
     icon: "cil-pencil",
+    _children: [
+      {
+        _tag: "CSidebarNavItem",
+        name: "Investidor",
+        to: "/investidor",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Investimentos realizados",
+        to: "/investidor/realizados",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Investimentos em andamento",
+        to: "/investidor/andamento",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Relatório dos fornecedores",
+        to: "/investidor/fornecedores",
+      },
+    ],
   },
 
   // DAQUI PRA BAIXO SÃO EXEMPLOS DO QUE POSSO USAR NO PROJETO
@@ -204,12 +254,12 @@ const _nav = [
   //     },
   //   ],
   // },
-  // {
-  //   _tag: "CSidebarNavItem",
-  //   name: "Charts",
-  //   to: "/charts",
-  //   icon: "cil-chart-pie",
-  // },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Charts",
+    to: "/charts",
+    icon: "cil-chart-pie",
+  },
   // {
   //   _tag: "CSidebarNavDropdown",
   //   name: "Icons",

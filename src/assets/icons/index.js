@@ -130,6 +130,8 @@ import {
   cilWarning,
   cilMoney,
   cilPlus,
+  cilBank,
+  cilWallet,
 } from '@coreui/icons'
 
 export const icons = Object.assign({}, {
@@ -261,5 +263,7 @@ export const icons = Object.assign({}, {
   cibStripe,
   cibPaypal,
   cibGooglePay,
-  cibCcAmex
+  cibCcAmex,
+  cilBank,
+  cilWallet,
 })

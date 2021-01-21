@@ -1,4 +1,5 @@
 import React, { lazy } from "react";
+
 import {
   CCard,
   CCardBody,
@@ -14,9 +15,14 @@ import { CIcon } from "@coreui/icons-react";
 
 const line = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
+  options: {
+    legend: {
+      display: false,
+    },
+  },
   datasets: [
     {
-      label: "",
+      label: "Fluxo Financeiro de Entradas",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(75,192,192,0.4)",
@@ -106,7 +112,11 @@ const Recebiveis = () => {
               </div>
             </div>
             <div className="d-flex justify-content-around">
-              <CChart type="line" datasets={line.datasets} />
+              <CChart
+                type="line"
+                datasets={line.datasets}
+                options={line.options}
+              />
             </div>
           </CCard>
         </CCol>

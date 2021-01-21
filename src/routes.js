@@ -32,6 +32,17 @@ const Inicial = React.lazy(() => import('./views/inicial/Inicial'));
 const Recebiveis = React.lazy(() => import('./views/recebiveis/gestor/Recebiveis'));
 const NotaFiscal = React.lazy(() => import('./views/recebiveis/notaFiscal/NotaFiscal'));
 const RelacaoRecebiveis = React.lazy(() => import('./views/recebiveis/relacao/RelacaoRecebiveis'));
+const RelacaoAntecipacao = React.lazy(() => import ('./views/recebiveis/antecipacao/RelacaoAntecipacao'));
+const ContasPagar = React.lazy(() => import('./views/contas/contas-pagar/ContasPagar'));
+const CadNotaFiscal = React.lazy(() => import('./views/contas/nota_fiscal/NotaFiscal'));
+const Domicio = React.lazy(() => import('./views/contas/domicio-bancario/Domicio'));
+const Fornecedores = React.lazy(() => import('./views/contas/fornecedores/Fornecedores'));
+const Detalhamento = React.lazy(() => import('./views/carteira/detalhamento/Detalhamento'));
+const Carteira = React.lazy(() => import('./views/carteira/gestor/Carteira'));
+const Investidor = React.lazy(() => import('./views/investidor/gestor/Investidor'));
+const InvestRealizado = React.lazy(() => import('./views/investidor/realizados/InvestRealizado'));
+const InvestAndamento = React.lazy(() => import('./views/investidor/andamento/InvestAndamento'));
+const RelatFornecedores = React.lazy(() => import('./views/investidor/fornecedores/RelatFornecedores'));
 
 const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
 const Flags = React.lazy(() => import('./views/icons/flags/Flags'));
@@ -52,6 +63,17 @@ const routes = [
   { path: '/recebiveis', name:'Recebiveis', component: Recebiveis, exact: true },
   { path: '/recebiveis/notafiscal', name: 'Nota Fiscal', component: NotaFiscal },
   { path: '/recebiveis/relacao', name: 'Relação Recebíveis', component: RelacaoRecebiveis },
+  { path: '/recebiveis/antecipacao', name: 'Relação Antecipação', component: RelacaoAntecipacao },
+  { path: '/contas/pagar', name: 'Contas a Pagar', component: ContasPagar },
+  { path: '/contas/notafiscal', name: 'Cadastro de Nota Fiscal', component: CadNotaFiscal },
+  { path: '/contas/domicio', name: 'Cadastro de Domício Bancário', component: Domicio },
+  { path: '/contas/fornecedores', name: 'Cadastro de Fornecedores', component: Fornecedores },
+  { path: '/carteira', name: 'Gestor de Carteira', component: Carteira, exact: true },
+  { path: '/carteira/detalhamento', name: 'Detalhamento da Carteira', component: Detalhamento },
+  { path: '/investidor', name: 'Investidor', component: Investidor, exact: true },
+  { path: '/investidor/realizados', name: 'Investimentos Realizados', component: InvestRealizado },
+  { path: '/investidor/andamento', name: 'Investimentos em Andamento', component: InvestAndamento },
+  { path: '/investidor/fornecedores', name: 'Relatórios de Fornecedores', component: RelatFornecedores },
 
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
