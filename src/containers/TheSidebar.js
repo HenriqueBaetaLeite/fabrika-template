@@ -23,7 +23,8 @@ const TheSidebar = () => {
 
   return (
     <CSidebar
-    // className="bg-warning"
+      // className="bg-warning"
+      style={{ background: "#78777c" }}
       show={show}
       onShowChange={(val) => dispatch({ type: "set", sidebarShow: val })}
     >

@@ -26,7 +26,10 @@ const TheHeader = () => {
   };
 
   return (
-    <CHeader className="d-flex justify-content-between">
+    <CHeader
+      style={{ background: "#e29b62", color: "#231f20" }}
+      className="d-flex justify-content-between"
+    >
       {/* Esse 2 primeiros elementos são o botão para "abrir e fechar" o menu */}
       <CToggler
         inHeader

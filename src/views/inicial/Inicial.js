@@ -18,8 +18,8 @@ const Inicial = () => {
       <CRow>
         <CCol>
           <CWidgetBrand
-            // className="bg-warning"
-            // color="facebook"
+            className="bg-warning"
+            color="secondary-base"
             rightHeader="8"
             rightFooter="Notas Fiscais"
             leftHeader="R$1.000,00"

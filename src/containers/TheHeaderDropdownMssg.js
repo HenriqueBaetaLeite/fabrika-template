@@ -15,13 +15,13 @@ const TheHeaderDropdownMssg = () => {
     <CDropdown inNav className="c-header-nav-item mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <CIcon name="cil-envelope-open" />
-        <CBadge shape="pill" color="info">
+        <CBadge shape="pill" color="secondary">
           {itemsCount}
         </CBadge>
       </CDropdownToggle>
 
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownItem header tag="div" color="light">
+        <CDropdownItem header tag="div" color="secondary">
           <strong>You have {itemsCount} messages</strong>
         </CDropdownItem>
 
