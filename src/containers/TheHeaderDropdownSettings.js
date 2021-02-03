@@ -14,7 +14,7 @@ const TheHeaderDropdown = () => {
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div className="c-avatar">
-          <CIcon name="cil-settings" />
+          <CIcon style={{ color: "#ff6a00" }} name="cil-settings" />
           {/* <CImg
             src={"avatars/6.jpg"}
             className="c-avatar-img"

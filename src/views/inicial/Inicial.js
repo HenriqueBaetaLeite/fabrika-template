@@ -16,10 +16,19 @@ const Inicial = () => {
   return (
     <>
       <CRow>
+        {/* <CCol>
+          <CCard>
+            <CCardHeader>
+              <h2>Clientes</h2>
+            </CCardHeader>
+            <CCardBody>
+              <p>8 notas fiscais</p>
+            </CCardBody>
+            teste
+          </CCard>
+        </CCol> */}
         <CCol>
           <CWidgetBrand
-            className="bg-warning"
-            color="secondary-base"
             rightHeader="8"
             rightFooter="Notas Fiscais"
             leftHeader="R$1.000,00"

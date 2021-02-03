@@ -17,8 +17,8 @@ const TheHeaderDropdownNotif = () => {
       className="c-header-nav-item mx-2"
     >
       <CDropdownToggle className="c-header-nav-link" caret={false}>
-        <CIcon name="cil-bell"/>
-        <CBadge shape="pill" color="danger">{itemsCount}</CBadge>
+        <CIcon style={{ color: "#ff6a00" }} name="cil-bell"/>
+        <CBadge shape="pill" color="info">{itemsCount}</CBadge>
       </CDropdownToggle>
       <CDropdownMenu  placement="bottom-end" className="pt-0">
         <CDropdownItem

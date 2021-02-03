@@ -12,8 +12,6 @@ import {
   CSidebarNavItem,
 } from "@coreui/react";
 
-import CIcon from "@coreui/icons-react";
-
 // sidebar nav config
 import navigation from "./_nav";
 
@@ -23,9 +21,9 @@ const TheSidebar = () => {
 
   return (
     <CSidebar
-      // className="bg-warning"
-      style={{ background: "#78777c" }}
-      show={show}
+      className="bg-white"
+      style={{ color: "#231f20" }}
+      show={!show}
       onShowChange={(val) => dispatch({ type: "set", sidebarShow: val })}
     >
       <h2 className="p-2 mx-auto">EM-CAPITAL</h2>

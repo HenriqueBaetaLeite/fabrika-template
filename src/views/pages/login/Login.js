@@ -25,13 +25,13 @@ const Login = () => {
     if (userName === "fabrika" && password === "fabrika") {
       return history.push("/inicial");
     }
-    alert("Wrong username or password");
+    alert("Wrong email or password");
   };
 
   const handleChange = (event) => {
     const { value, name } = event.target;
     switch (name) {
-      case "username":
+      case "email":
         setUserName(value);
         break;
       default:
@@ -49,36 +49,47 @@ const Login = () => {
         <CRow className="justify-content-center">
           <CCol md="8">
             <CCardGroup>
-              <CCard className="p-4">
+              <CCard
+                style={{ border: "1px solid black", borderRadius: "0px" }}
+                className="p-4"
+              >
                 <CCardBody>
-                  <CForm>
+                  <CForm style={{ color: "#231f20" }}>
                     <h1>Login</h1>
-                    <p className="text-muted">Sign In to your account</p>
+                    <p>Digite seu usuário e senha para acessar o portal</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupPrepend>
-                        <CInputGroupText>
+                        {/* <CInputGroupText>
                           <CIcon name="cil-user" />
-                        </CInputGroupText>
+                        </CInputGroupText> */}
                       </CInputGroupPrepend>
                       <CInput
-                        name="username"
+                        style={{
+                          border: "1px solid black",
+                          borderRadius: "4px",
+                        }}
+                        name="email"
                         onChange={handleChange}
-                        type="text"
-                        placeholder="Username"
-                        autoComplete="username"
+                        type="email"
+                        placeholder="E-mail"
+                        autoComplete="email"
                       />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupPrepend>
-                        <CInputGroupText>
+                        {/* <CInputGroupText>
                           <CIcon name="cil-lock-locked" />
-                        </CInputGroupText>
+                        </CInputGroupText> */}
                       </CInputGroupPrepend>
                       <CInput
+                        style={{
+                          border: "1px solid black",
+                          borderRadius: "4px",
+                        }}
                         name="password"
                         onChange={handleChange}
                         type="password"
-                        placeholder="Password"
+                        placeholder="Senha"
                         autoComplete="current-password"
                       />
                     </CInputGroup>
@@ -89,12 +100,12 @@ const Login = () => {
                           color="primary"
                           className="px-4"
                         >
-                          Login
+                          Acessar
                         </CButton>
                       </CCol>
-                      <CCol xs="6" className="text-right">
-                        <CButton color="link" className="px-0">
-                          Forgot password?
+                      <CCol xs="6" className="">
+                        <CButton color="blue" className="px-0">
+                          Esqueci minha senha
                         </CButton>
                       </CCol>
                     </CRow>
@@ -102,19 +113,25 @@ const Login = () => {
                 </CCardBody>
               </CCard>
               <CCard
-                className="text-white bg-primary py-5 d-md-down-none"
-                style={{ width: "44%" }}
+                className="py-5 d-md-down-none"
+                style={{
+                  borderRadius: "0px",
+                  border: "1px solid black",
+                  width: "44%",
+                  background: "#e29b62",
+                  color: "#231f20",
+                }}
               >
                 <CCardBody className="text-center">
                   <div>
-                    <h2>EM-CAPITAL</h2>
+                    <h2>EMCASH</h2>
                     <h5>Gerencie o seu fluxo de caixa</h5>
-                    <p>Acesse de forma ágil se segura</p>
+                    <p>Acesse de forma ágil e segura</p>
 
-                    <Link to="/register">
+                    <Link to="/registerpj">
                       <CButton
-                        color="primary"
-                        className="mt-3"
+                        style={{ color: "white" }}
+                        className="mt-4"
                         active
                         tabIndex={-1}
                       >

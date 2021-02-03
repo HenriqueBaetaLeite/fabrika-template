@@ -3,7 +3,7 @@ import { CFooter } from "@coreui/react";
 
 const TheFooter = () => {
   return (
-    <CFooter style={{ background: "#e29b62" }} fixed={false}>
+    <CFooter fixed={false}>
       <div className="mfs-auto">
         <a
           style={{ color: "#231f20" }}
