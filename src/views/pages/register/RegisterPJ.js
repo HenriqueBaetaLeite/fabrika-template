@@ -8,6 +8,7 @@ import {
   CCol,
   CContainer,
   CForm,
+  CSelect,
   CInput,
   CInputGroup,
   CInputGroupPrepend,
@@ -18,8 +19,52 @@ import CIcon from "@coreui/icons-react";
 
 import logo from "../../../assets/emcash.png";
 
+const inputStyles = {
+  border: "1px solid black",
+  borderRadius: "4px",
+  color: "#231f20",
+};
+
 const RegisterPJ = () => {
+  const [nomeFantasia, setNomeFantasia] = useState("");
+  const [razaoSocial, setRazaoSocial] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [dataFundacao, setDataFundacao] = useState("");
+  const [cep, setCep] = useState("");
+  const [logradouro, setLogradouro] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [complemento, setComplemento] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [uf, setUf] = useState("");
+  const [banco, setBanco] = useState("");
+  const [agencia, setAgencia] = useState("");
+  const [conta, setConta] = useState("");
+  const [cadastroPJ, setCadastroPJ] = useState({});
   const history = useHistory();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("submit!!");
+    await setCadastroPJ({
+      nomeFantasia,
+      razaoSocial,
+      cnpj,
+      dataFundacao,
+      cep,
+      logradouro,
+      bairro,
+      complemento,
+      cidade,
+      uf,
+      banco,
+      agencia,
+      conta,
+    });
+  };
+
+  console.log("primeiro log!", nomeFantasia);
+  console.log("pj", cadastroPJ);
+
   return (
     <div
       style={{ background: "white" }}
@@ -30,152 +75,143 @@ const RegisterPJ = () => {
         <h3 className="text-center my-4">Cadastro PJ portal EmCash</h3>
         <CRow className="d-flex justify-content-center">
           <CCol md="9" lg="7" xl="6">
-            <CForm className="d-flex justify-content-around">
+            <CForm
+              autoComplete={false}
+              onSubmit={handleSubmit}
+              className="d-flex justify-content-around"
+            >
               <div>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
+                    style={inputStyles}
+                    name="nome-fantasia"
                     type="text"
                     placeholder="Nome Fantasia"
-                    // autoComplete="username"
                     required
+                    onChange={(event) => setNomeFantasia(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
+                    style={inputStyles}
+                    name="razao-social"
                     type="text"
                     placeholder="Razão Social"
-                    autoComplete="email"
+                    onChange={(event) => setRazaoSocial(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
+                    style={inputStyles}
+                    name="cnpj"
                     type="number"
                     placeholder="CNPJ"
-                    autoComplete="new-password"
+                    onChange={(event) => setCnpj(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                    style={inputStyles}
+                    name="data-fundacao"
+                    type="date"
                     placeholder="Data fundação"
-                    autoComplete="new-password"
+                    onChange={(event) => setDataFundacao(event.target.value)}
                   />
                 </CInputGroup>
               </div>
               <div>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
+                    style={inputStyles}
+                    name="cep"
                     type="number"
                     placeholder="CEP"
-                    autoComplete="new-password"
+                    onChange={(event) => setCep(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                    style={inputStyles}
+                    name="logradouro"
+                    type="text"
                     placeholder="Logradouro"
-                    autoComplete="new-password"
+                    onChange={(event) => setLogradouro(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                    style={inputStyles}
+                    name="bairro"
+                    type="text"
                     placeholder="Bairro"
-                    autoComplete="new-password"
+                    onChange={(event) => setBairro(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                    style={inputStyles}
+                    name="complemento"
+                    type="text"
                     placeholder="Complemento"
-                    autoComplete="new-password"
+                    onChange={(event) => setComplemento(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                    style={inputStyles}
+                    name="cidade"
+                    type="text"
                     placeholder="Cidade"
-                    autoComplete="new-password"
+                    onChange={(event) => setCidade(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
-                  <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                  {/* <CSelect
+                  placeholder="UF"
+                    value="oi"
+                    options={[
+                      { value: "js", label: "JavaScript" },
+                      { value: "html", label: "HTML" },
+                    ]}
+                    style={inputStyles}
+                    name="uf"
+                    type="text"
                     placeholder="UF"
-                    autoComplete="new-password"
+                    onChange={(event) => setUf(event.target.value)}
+                  ></CSelect> */}
+                  <CInput
+                    style={inputStyles}
+                    name="uf"
+                    type="text"
+                    placeholder="UF"
+                    onChange={(event) => setUf(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
-                    type="number"
+                    style={inputStyles}
+                    name="banco"
+                    type="text"
                     placeholder="Banco"
-                    autoComplete="new-password"
+                    onChange={(event) => setBanco(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
+                    style={inputStyles}
+                    name="agencia"
                     type="number"
                     placeholder="Agência"
-                    autoComplete="new-password"
+                    onChange={(event) => setAgencia(event.target.value)}
                   />
                 </CInputGroup>
                 <CInputGroup className="mb-3">
                   <CInput
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "4px",
-                    }}
+                    style={inputStyles}
+                    name="conta"
                     type="number"
                     placeholder="Conta"
-                    autoComplete="new-password"
+                    onChange={(event) => setConta(event.target.value)}
                   />
                 </CInputGroup>
               </div>
@@ -184,7 +220,9 @@ const RegisterPJ = () => {
         </CRow>
         <CRow>
           <CButton
-            onClick={() => history.push("/registeroperator")}
+            type="submit"
+            // onClick={() => history.push("/registeroperator")}
+            onClick={handleSubmit}
             className="mx-auto my-4"
             color="primary"
           >

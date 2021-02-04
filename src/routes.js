@@ -30,9 +30,13 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 // PRIMEIRA ROTA CUSTOMIZADA
 const Inicial = React.lazy(() => import('./views/inicial/Inicial'));
 const Recebiveis = React.lazy(() => import('./views/recebiveis/gestor/Recebiveis'));
-const NotaFiscal = React.lazy(() => import('./views/recebiveis/notaFiscal/NotaFiscal'));
+const CadastroRecebivel = React.lazy(() => import('./views/recebiveis/cadastro/CadastrarRecebivel'));
+
+const RecebiveisCadastrados = React.lazy(() => import('./views/recebiveis/cadastrados/RecebiveisCadastrados'));;
+
 const RelacaoRecebiveis = React.lazy(() => import('./views/recebiveis/relacao/RelacaoRecebiveis'));
 const RelacaoAntecipacao = React.lazy(() => import ('./views/recebiveis/antecipacao/RelacaoAntecipacao'));
+
 const ContasPagar = React.lazy(() => import('./views/contas/contas-pagar/ContasPagar'));
 const CadNotaFiscal = React.lazy(() => import('./views/contas/nota_fiscal/NotaFiscal'));
 const Domicio = React.lazy(() => import('./views/contas/domicio-bancario/Domicio'));
@@ -60,10 +64,15 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/inicial', name: 'Inicial', component: Inicial },
+
   { path: '/recebiveis', name:'Recebiveis', component: Recebiveis, exact: true },
-  { path: '/recebiveis/notafiscal', name: 'Nota Fiscal', component: NotaFiscal },
+  { path: '/recebiveis/cadastro', name: 'Cadastrar Recebível', component: CadastroRecebivel },
+
+  { path: '/recebiveis/cadastrados', name: 'Nota Fiscal', component: RecebiveisCadastrados },
+
   { path: '/recebiveis/relacao', name: 'Relação Recebíveis', component: RelacaoRecebiveis },
   { path: '/recebiveis/antecipacao', name: 'Relação Antecipação', component: RelacaoAntecipacao },
+
   { path: '/contas/pagar', name: 'Contas a Pagar', component: ContasPagar },
   { path: '/contas/notafiscal', name: 'Cadastro de Nota Fiscal', component: CadNotaFiscal },
   { path: '/contas/domicio', name: 'Cadastro de Domício Bancário', component: Domicio },

@@ -16,6 +16,8 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 
+import logo from "../../../assets/emcash.png";
+
 const Login = () => {
   const history = useHistory();
   const [userName, setUserName] = useState("");
@@ -124,7 +126,8 @@ const Login = () => {
               >
                 <CCardBody className="text-center">
                   <div>
-                    <h2>EMCASH</h2>
+                    {/* <h2>EMCASH</h2> */}
+                    <img src={logo} alt="logo emcash" className="my-3" />
                     <h5>Gerencie o seu fluxo de caixa</h5>
                     <p>Acesse de forma ágil e segura</p>
 
