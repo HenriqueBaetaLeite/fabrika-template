@@ -64,12 +64,17 @@ const CadastrarRecebivel = () => {
         <CCardBody>
           <div>
             <a className="m-2" href="#">
-              {/* <CIcon name="cilHome" /> */}
-              <i className="cil-cloud-download" style={{ color: "black" }}></i>
+              <i
+                className="cil-data-transfer-down m-1"
+                style={{ color: "black" }}
+              ></i>
               Baixar template
             </a>
             <a className="m-2" href="#">
-              <i className="cil-cloud-upload" style={{ color: "black" }}></i>
+              <i
+                className="cil-data-transfer-up m-1"
+                style={{ color: "black" }}
+              ></i>
               Importar template
             </a>
             <span>ou</span>

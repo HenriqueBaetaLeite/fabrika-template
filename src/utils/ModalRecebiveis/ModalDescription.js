@@ -8,7 +8,7 @@ import {
   CModalHeader,
 } from "@coreui/react";
 
-const ModalTrash = () => {
+const ModalEdit = () => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => {
@@ -16,20 +16,20 @@ const ModalTrash = () => {
   };
   return (
     <>
-      <i onClick={toggle} className="cil-trash" style={{ cursor: "pointer" }}>
+      <i onClick={toggle} className="cil-description" style={{ cursor: "pointer" }}>
         {/* Launch demo modal */}
       </i>
       <CModal show={modal} onClose={toggle}>
         <CModalHeader>
-          <h2 className="mx-auto">Confirmo a exclusão</h2>
+          <h2 className="mx-auto">Editar nota cadastrada</h2>
         </CModalHeader>
         <CModalBody>
-          Ao excluir da listagem o recebível cadastrado o mesmo voltará para
-          "recebíves cadastrados"
+          A alteração do pedido de antecipação do recebível irá requisitar
+          confirmação do cliente parceiro
         </CModalBody>
         <CModalFooter>
           <CButton color="secondary" onClick={toggle}>
-            Negar
+            Cancelar
           </CButton>
           <CButton color="primary">Confirmar</CButton>
         </CModalFooter>
@@ -38,4 +38,4 @@ const ModalTrash = () => {
   );
 };
 
-export default ModalTrash;
+export default ModalEdit;

@@ -16,18 +16,43 @@ const Inicial = () => {
   return (
     <>
       <CRow>
-        {/* <CCol>
+        <CCol>
           <CCard>
-            <CCardHeader>
+            <CCardHeader className="text-center">
               <h2>Clientes</h2>
             </CCardHeader>
-            <CCardBody>
-              <p>8 notas fiscais</p>
+            <CCardBody className="d-flex justify-content-around">
+              <div className="text-center">
+                <h2>8</h2>
+                <span>notas fiscais</span>
+              </div>
+              <div className="text-center">
+                <h2>R$1000,00</h2>
+                <span>Total das notas</span>
+              </div>
             </CCardBody>
-            teste
           </CCard>
-        </CCol> */}
+        </CCol>
         <CCol>
+          <CCard>
+            <CCardHeader className="text-center">
+              <h2>Fornecedor</h2>
+            </CCardHeader>
+            <CCardBody className="d-flex justify-content-around">
+              <div className="text-center">
+                <h2>1</h2>
+                <span>notas fiscais</span>
+              </div>
+              <div className="text-center">
+                <h2>R$200,00</h2>
+                <span>Total das notas</span>
+              </div>
+            </CCardBody>
+          </CCard>
+        </CCol>
+
+        {/* DIVISÓRIA ENTRE CCARD CWIDGET */}
+        {/* <CCol>
           <CWidgetBrand
             rightHeader="8"
             rightFooter="Notas Fiscais"
@@ -52,10 +77,47 @@ const Inicial = () => {
               <h4 className="text-dark">Fornecedores</h4>
             </div>
           </CWidgetBrand>
-        </CCol>
+        </CCol> */}
       </CRow>
 
       <CRow>
+        <CCol>
+          <CCard>
+            <CCardHeader className="text-center">
+              <h2>Volume financeiro Intermediado acumulado</h2>
+            </CCardHeader>
+            <CCardBody className="d-flex justify-content-around">
+              <div className="text-center">
+                <h2>6</h2>
+                <span>notas fiscais</span>
+              </div>
+              <div className="text-center">
+                <h2>R$1000,00</h2>
+                <span>Total das notas</span>
+              </div>
+            </CCardBody>
+          </CCard>
+        </CCol>
+
+        <CCol>
+          <CCard>
+            <CCardHeader className="text-center">
+              <h2>Volume financeiro Intermediado no mês</h2>
+            </CCardHeader>
+            <CCardBody className="d-flex justify-content-around">
+              <div className="text-center">
+                <h2>1</h2>
+                <span>notas fiscais</span>
+              </div>
+              <div className="text-center">
+                <h2>R$300,00</h2>
+                <span>Total das notas</span>
+              </div>
+            </CCardBody>
+          </CCard>
+        </CCol>
+
+        {/*
         <CCol>
           <CWidgetBrand
             // className="bg-warning"
@@ -87,7 +149,7 @@ const Inicial = () => {
               </h4>
             </div>
           </CWidgetBrand>
-        </CCol>
+        </CCol> */}
       </CRow>
     </>
   );

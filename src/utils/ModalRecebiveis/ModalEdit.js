@@ -20,8 +20,8 @@ const ModalEdit = () => {
         {/* Launch demo modal */}
       </i>
       <CModal show={modal} onClose={toggle}>
-        <CModalHeader className="mx-auto">
-          <h2>Editar nota cadastrada</h2>
+        <CModalHeader>
+          <h2 className="mx-auto">Editar nota cadastrada</h2>
         </CModalHeader>
         <CModalBody>
           A alteração do pedido de antecipação do recebível irá requisitar

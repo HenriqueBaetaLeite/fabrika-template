@@ -297,7 +297,11 @@ const RelacaoRecebiveis = () => {
                 <ModalEdit />
               </td>
             ),
-            delete: (item, index) => <ModalTrash />,
+            delete: (item, index) => (
+              <td>
+                <ModalTrash />
+              </td>
+            ),
             show_details: (item, index) => (
               <td className="py-2">
                 <CButton

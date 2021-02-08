@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { apiEx } from "../../../service/api";
 
@@ -12,6 +13,7 @@ import {
   CDataTable,
   CButton,
 } from "@coreui/react";
+import CIcon from "@coreui/icons-react";
 
 const RecebiveisCadastrados = () => {
   const [dataTable, setDataTable] = useState([]);
@@ -142,6 +144,9 @@ const RecebiveisCadastrados = () => {
             <h3 className="text-center">Recebíveis cadastrados</h3>
             <p>Recebíveis aguardando confirmação do cliente parceiro</p>
           </div>
+          <Link to="/recebiveis/cadastro">
+            <CIcon className="float-right" name="cilPlus"></CIcon>
+          </Link>
           <CCard className="m-2">
             <CDataTable
               items={dataTable}
