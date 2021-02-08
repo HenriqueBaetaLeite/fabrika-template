@@ -24,7 +24,7 @@ const RegisterDocs = () => {
   return (
     <div
       style={{ background: "white" }}
-      className="c-app c-default-layout flex-row align-items-center"
+      className="c-app c-default-layout flex-row align-items-center text-dark"
     >
       <CContainer className="d-flex flex-column">
         <img src={logo} alt="logo" width="200px" />

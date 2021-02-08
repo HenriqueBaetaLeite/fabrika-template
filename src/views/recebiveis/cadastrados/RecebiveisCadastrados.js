@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+import { apiEx } from "../../../service/api";
+
 import {
   CCard,
   CCardBody,
@@ -122,17 +125,26 @@ const RecebiveisCadastrados = () => {
       valorDisponívelA: "R$339",
     },
   ];
+
+  useEffect(() => {
+    fetch("https://swapi.dev/api/planets")
+      .then((data) => data.json())
+      .then((resp) => setDataTable(resp.results));
+  }, []);
+
+  // console.log(dataTable.filter((el) => el !== el["residents"]));
+
   return (
     <>
       <CRow>
         <CCard className="h-100">
           <div className="p-2 m-2">
-            <h4 className="text-center">Recebíveis cadastrados</h4>
+            <h3 className="text-center">Recebíveis cadastrados</h3>
             <p>Recebíveis aguardando confirmação do cliente parceiro</p>
           </div>
           <CCard className="m-2">
             <CDataTable
-              items={usersData}
+              items={dataTable}
               // fields={fields}
               columnFilter
               // tableFilter
@@ -144,7 +156,7 @@ const RecebiveisCadastrados = () => {
               // pagination
             />
           </CCard>
-          <p>Quantidade de notas fiscais: {usersData.length}</p>
+          <p>Quantidade de notas fiscais: {dataTable.length}</p>
         </CCard>
       </CRow>
     </>

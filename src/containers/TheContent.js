@@ -13,7 +13,7 @@ const loading = (
 
 const TheContent = () => {
   return (
-    <main  style={{background: "white"}} className="c-main">
+    <main style={{ background: "white" }} className="c-main">
       <CContainer fluid>
         <Suspense fallback={loading}>
           <Switch>

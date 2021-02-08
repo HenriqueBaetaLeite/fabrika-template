@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./scss/style.scss";
 
 const loading = (
@@ -14,15 +14,23 @@ const TheLayout = React.lazy(() => import("./containers/TheLayout"));
 // Pages
 const Login = React.lazy(() => import("./views/pages/login/Login"));
 const Register = React.lazy(() => import("./views/pages/register/Register"));
-const RegisterPJ = React.lazy(() => import('./views/pages/register/RegisterPJ'));
-const RegisterOperator = React.lazy(() => import('./views/pages/register/RegisterOperator'));
-const RegisterDocs = React.lazy(() => import('./views/pages/register/RegisterDocs'));
-const RegisterFinished = React.lazy(() => import('./views/pages/register/RegisterFinished'));
+const RegisterPJ = React.lazy(() =>
+  import("./views/pages/register/RegisterPJ")
+);
+const RegisterOperator = React.lazy(() =>
+  import("./views/pages/register/RegisterOperator")
+);
+const RegisterDocs = React.lazy(() =>
+  import("./views/pages/register/RegisterDocs")
+);
+const RegisterFinished = React.lazy(() =>
+  import("./views/pages/register/RegisterFinished")
+);
 const Page404 = React.lazy(() => import("./views/pages/page404/Page404"));
 const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
 
 const App = () => (
-  <HashRouter>
+  <BrowserRouter>
     <React.Suspense fallback={loading}>
       <Switch>
         <Route
@@ -80,7 +88,7 @@ const App = () => (
         />
       </Switch>
     </React.Suspense>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default App;

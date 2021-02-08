@@ -1,25 +1,26 @@
-import React from 'react'
-import {
-  TheContent,
-  TheSidebar,
-  TheFooter,
-  TheHeader
-} from './index'
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { TheContent, TheSidebar, TheFooter, TheHeader } from "./index";
 
 const TheLayout = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!localStorage.getItem("userLogin")) history.push("/login");
+  }, []);
 
   return (
     <div className="c-app c-default-layout" color="primary">
-      <TheSidebar/>
+      <TheSidebar />
       <div className="c-wrapper">
-        <TheHeader/>
+        <TheHeader />
         <div className="c-body">
-          <TheContent/>
+          <TheContent />
         </div>
-        <TheFooter/>
+        <TheFooter />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TheLayout
+export default TheLayout;

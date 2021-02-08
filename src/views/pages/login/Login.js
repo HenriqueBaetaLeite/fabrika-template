@@ -25,12 +25,15 @@ const Login = () => {
 
   const handleLogin = () => {
     if (userName === "fabrika" && password === "fabrika") {
+      localStorage.setItem("userLogin", userName);
+
       return history.push("/inicial");
     }
     alert("Wrong email or password");
   };
 
   const handleChange = (event) => {
+    event.preventDefault();
     const { value, name } = event.target;
     switch (name) {
       case "email":
@@ -56,7 +59,7 @@ const Login = () => {
                 className="p-4"
               >
                 <CCardBody>
-                  <CForm style={{ color: "#231f20" }}>
+                  <CForm onSubmit={handleLogin} style={{ color: "#231f20" }}>
                     <h1>Login</h1>
                     <p>Digite seu usuário e senha para acessar o portal</p>
                     <CInputGroup className="mb-3">
@@ -72,9 +75,9 @@ const Login = () => {
                         }}
                         name="email"
                         onChange={handleChange}
-                        type="email"
+                        type="text"
                         placeholder="E-mail"
-                        autoComplete="email"
+                        required
                       />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
@@ -92,13 +95,14 @@ const Login = () => {
                         onChange={handleChange}
                         type="password"
                         placeholder="Senha"
-                        autoComplete="current-password"
+                        required
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs="6">
                         <CButton
-                          onClick={handleLogin}
+                          type="submit"
+                          // onClick={handleLogin}
                           color="primary"
                           className="px-4"
                         >

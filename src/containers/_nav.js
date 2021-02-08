@@ -36,7 +36,7 @@ const _nav = [
       {
         _tag: "CSidebarNavItem",
         name: "Recebíveis autorizados",
-        to: "/recebiveis/relacao",
+        to: "/recebiveis/autorizados",
       },
       {
         _tag: "CSidebarNavItem",
@@ -48,6 +48,11 @@ const _nav = [
         name: "Dashboard",
         to: "/recebiveis",
         // icon: "cil-dollar",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "teste tabela com botão",
+        to: "/recebiveis/testes",
       },
     ],
   },

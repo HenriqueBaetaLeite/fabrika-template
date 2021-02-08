@@ -5,7 +5,6 @@ import {
   CCardBody,
   CDataTable,
   CButton,
-
 } from "@coreui/react";
 
 import CIcon from "@coreui/icons-react";
@@ -42,9 +41,9 @@ const CadastrarRecebivel = () => {
   const [items, setItems] = useState(usersData);
 
   const fields = [
-    { key: "nome Do Arquivo", _style: { width: "20%" } },
+    { key: "nomeDoArquivo", _style: { width: "20%" } },
     {
-      key: "Nome do usuário",
+      key: "nomeDoUsuário",
       _style: { width: "20%" },
     },
     { key: "Data/Hora importação", _style: { width: "20%" } },
@@ -58,12 +57,11 @@ const CadastrarRecebivel = () => {
       <CCard className="mx-auto h-100 p-2">
         <h3 className="text-center">Cadastrar recebíveis</h3>
 
+        <p>
+          Cadastre sua nota através do nosso template ou pela leitura do código
+          de barras
+        </p>
         <CCardBody>
-          <p>
-            Cadastre sua nota através do nosso template ou pela leitura do
-            código de barras
-          </p>
-
           <div>
             <a className="m-2" href="#">
               {/* <CIcon name="cilHome" /> */}
@@ -89,9 +87,19 @@ const CadastrarRecebivel = () => {
           <div className="my-3">
             <CDataTable
               items={usersData}
-              // fields={fields}
+              fields={fields}
               // itemsPerPage={5}
               hover
+              scopedSlots={{
+                Download: (item, index) => (
+                  <td>
+                    <i
+                      style={{ cursor: "pointer" }}
+                      className="cil-data-transfer-down"
+                    ></i>
+                  </td>
+                ),
+              }}
               // sorter
             />
           </div>

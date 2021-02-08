@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import ModalTrash from "../../../utils/ModalRecebiveis/ModalTrash";
+import ModalEdit from "../../../utils/ModalRecebiveis/ModalEdit";
+
 import {
   CCard,
   CCardBody,
@@ -221,7 +224,7 @@ const RelacaoRecebiveis = () => {
   ];
 
   const [details, setDetails] = useState([]);
-  // const [items, setItems] = useState(usersData)
+  const [items, setItems] = useState(usersData);
 
   const toggleDetails = (index) => {
     const position = details.indexOf(index);
@@ -238,7 +241,6 @@ const RelacaoRecebiveis = () => {
     { key: "Data", _style: { width: "20%" } },
     { key: "notaFiscal", label: "Nº Nota Fiscal", _style: { width: "20%" } },
     { key: "Cliente", _style: { width: "20%" } },
-    { key: "status", _style: { width: "20%" } },
     {
       key: "show_details",
       label: "",
@@ -246,22 +248,28 @@ const RelacaoRecebiveis = () => {
       sorter: false,
       filter: false,
     },
+    {
+      key: "check_box",
+      label: "",
+      _style: { width: "5%" },
+      sorter: false,
+      filter: false,
+    },
+    {
+      key: "edit",
+      label: "",
+      _style: { width: "5%" },
+      sorter: false,
+      filter: false,
+    },
+    {
+      key: "delete",
+      label: "",
+      _style: { width: "5%" },
+      sorter: false,
+      filter: false,
+    },
   ];
-
-  const getBadge = (status) => {
-    switch (status) {
-      case "Active":
-        return "success";
-      case "Inactive":
-        return "secondary";
-      case "Pending":
-        return "warning";
-      case "Banned":
-        return "danger";
-      default:
-        return "primary";
-    }
-  };
 
   return (
     <>
@@ -272,51 +280,53 @@ const RelacaoRecebiveis = () => {
           fields={fields}
           columnFilter
           tableFilter
-          // footer
+          footer
           itemsPerPageSelect
           itemsPerPage={5}
           hover
           sorter
           pagination
           scopedSlots={{
-            status: (item) => (
+            check_box: (item, index) => (
               <td>
-                <CBadge color={getBadge(item.status)}>{item.status}</CBadge>
+                <input type="checkbox" />
               </td>
             ),
-            show_details: (item, index) => {
-              return (
-                <td className="py-2">
-                  <CButton
-                    color="primary"
-                    variant="outline"
-                    shape="square"
-                    size="sm"
-                    onClick={() => {
-                      toggleDetails(index);
-                    }}
-                  >
-                    {details.includes(index) ? "Hide" : "Show"}
+            edit: (item, index) => (
+              <td>
+                <ModalEdit />
+              </td>
+            ),
+            delete: (item, index) => <ModalTrash />,
+            show_details: (item, index) => (
+              <td className="py-2">
+                <CButton
+                  color="primary"
+                  variant="outline"
+                  shape="square"
+                  size="sm"
+                  onClick={() => {
+                    toggleDetails(index);
+                  }}
+                >
+                  {details.includes(index) ? "Hide" : "Show"}
+                </CButton>
+              </td>
+            ),
+            details: (item, index) => (
+              <CCollapse show={details.includes(index)}>
+                <CCardBody>
+                  <h4>{item.Cliente}</h4>
+                  <p className="text-muted">User since: {item.Data}</p>
+                  <CButton size="sm" color="info">
+                    User Settings
                   </CButton>
-                </td>
-              );
-            },
-            details: (item, index) => {
-              return (
-                <CCollapse show={details.includes(index)}>
-                  <CCardBody>
-                    <h4>{item.username}</h4>
-                    <p className="text-muted">User since: {item.registered}</p>
-                    <CButton size="sm" color="info">
-                      User Settings
-                    </CButton>
-                    <CButton size="sm" color="danger" className="ml-1">
-                      Delete
-                    </CButton>
-                  </CCardBody>
-                </CCollapse>
-              );
-            },
+                  <CButton size="sm" color="danger" className="ml-1">
+                    Delete
+                  </CButton>
+                </CCardBody>
+              </CCollapse>
+            ),
           }}
         />
       </CCard>

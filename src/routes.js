@@ -27,13 +27,16 @@ const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/Butt
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'));
 const Charts = React.lazy(() => import('./views/charts/Charts'));
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
+
 // PRIMEIRA ROTA CUSTOMIZADA
 const Inicial = React.lazy(() => import('./views/inicial/Inicial'));
+
+const Testes = React.lazy(() => import('./views/recebiveis/relacao/RelacaoRecebiveis'));
+
 const Recebiveis = React.lazy(() => import('./views/recebiveis/gestor/Recebiveis'));
 const CadastroRecebivel = React.lazy(() => import('./views/recebiveis/cadastro/CadastrarRecebivel'));
-
-const RecebiveisCadastrados = React.lazy(() => import('./views/recebiveis/cadastrados/RecebiveisCadastrados'));;
-
+const RecebiveisCadastrados = React.lazy(() => import('./views/recebiveis/cadastrados/RecebiveisCadastrados'));
+const RecebiveisAutorizados = React.lazy(() => import('./views/recebiveis/autorizados/RecebiveisAutorizados'));
 const RelacaoRecebiveis = React.lazy(() => import('./views/recebiveis/relacao/RelacaoRecebiveis'));
 const RelacaoAntecipacao = React.lazy(() => import ('./views/recebiveis/antecipacao/RelacaoAntecipacao'));
 
@@ -41,8 +44,10 @@ const ContasPagar = React.lazy(() => import('./views/contas/contas-pagar/ContasP
 const CadNotaFiscal = React.lazy(() => import('./views/contas/nota_fiscal/NotaFiscal'));
 const Domicio = React.lazy(() => import('./views/contas/domicio-bancario/Domicio'));
 const Fornecedores = React.lazy(() => import('./views/contas/fornecedores/Fornecedores'));
+
 const Detalhamento = React.lazy(() => import('./views/carteira/detalhamento/Detalhamento'));
 const Carteira = React.lazy(() => import('./views/carteira/gestor/Carteira'));
+
 const Investidor = React.lazy(() => import('./views/investidor/gestor/Investidor'));
 const InvestRealizado = React.lazy(() => import('./views/investidor/realizados/InvestRealizado'));
 const InvestAndamento = React.lazy(() => import('./views/investidor/andamento/InvestAndamento'));
@@ -65,10 +70,12 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/inicial', name: 'Inicial', component: Inicial },
 
+  { path: '/recebiveis/testes', name:'Testes', component: Testes },
+
   { path: '/recebiveis', name:'Recebiveis', component: Recebiveis, exact: true },
   { path: '/recebiveis/cadastro', name: 'Cadastrar Recebível', component: CadastroRecebivel },
-
-  { path: '/recebiveis/cadastrados', name: 'Nota Fiscal', component: RecebiveisCadastrados },
+  { path: '/recebiveis/cadastrados', name: 'Recebíveis Cadastrados', component: RecebiveisCadastrados },
+  { path: '/recebiveis/autorizados', name: 'Recebíveis autorizados', component: RecebiveisAutorizados },
 
   { path: '/recebiveis/relacao', name: 'Relação Recebíveis', component: RelacaoRecebiveis },
   { path: '/recebiveis/antecipacao', name: 'Relação Antecipação', component: RelacaoAntecipacao },
