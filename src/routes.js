@@ -86,6 +86,7 @@ const routes = [
   { path: '/contas/fornecedores', name: 'Cadastro de Fornecedores', component: Fornecedores },
   { path: '/carteira', name: 'Gestor de Carteira', component: Carteira, exact: true },
   { path: '/carteira/detalhamento', name: 'Detalhamento da Carteira', component: Detalhamento },
+
   { path: '/investidor', name: 'Investidor', component: Investidor, exact: true },
   { path: '/investidor/realizados', name: 'Investimentos Realizados', component: InvestRealizado },
   { path: '/investidor/andamento', name: 'Investimentos em Andamento', component: InvestAndamento },

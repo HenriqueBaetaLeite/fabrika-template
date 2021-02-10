@@ -71,20 +71,20 @@ const Login = () => {
                 style={{ border: "1px solid black", borderRadius: "0px" }}
                 className="p-4"
               >
-                {wrongLogin && (
-                  <CToast
-                    color="danger"
-                    key={1.2}
-                    show={true}
-                    autohide={6000}
-                    fade={true}
-                  >
-                    <CToastHeader>Erro!</CToastHeader>
-                    <CToastBody>Login ou senha incorreto</CToastBody>
-                  </CToast>
-                )}
                 <CCardBody>
                   <CForm onSubmit={handleLogin} style={{ color: "#231f20" }}>
+                    {wrongLogin && (
+                      <CToast
+                        color="danger"
+                        key={1.2}
+                        show={true}
+                        autohide={4000}
+                        fade={true}
+                      >
+                        <CToastHeader>Erro!</CToastHeader>
+                        <CToastBody>Login ou senha incorreto</CToastBody>
+                      </CToast>
+                    )}
                     <h1>Login</h1>
                     <p>Digite seu usuário e senha para acessar o portal</p>
                     <CInputGroup className="mb-3">
