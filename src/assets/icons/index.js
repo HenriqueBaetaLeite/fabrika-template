@@ -125,6 +125,7 @@ import {
   cilPlus,
   cilBank,
   cilWallet,
+  cilAccountLogout,
 } from "@coreui/icons";
 
 export const icons = Object.assign(
@@ -264,5 +265,6 @@ export const icons = Object.assign(
     cibCcAmex,
     cilBank,
     cilWallet,
+    cilAccountLogout,
   }
 );

@@ -13,27 +13,40 @@ import {
   CInputGroupPrepend,
   CInputGroupText,
   CRow,
+  CToaster,
+  CToast,
+  CToastBody,
+  CToastHeader,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 
 import logo from "../../../assets/emcash.png";
 
+const inputStyle = {
+  border: "1px solid black",
+  borderRadius: "4px",
+  color: "#231f20",
+};
+
 const Login = () => {
   const history = useHistory();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [wrongLogin, setWrongLogin] = useState(false);
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
     if (userName === "fabrika" && password === "fabrika") {
       localStorage.setItem("userLogin", userName);
 
       return history.push("/inicial");
     }
-    alert("Wrong email or password");
+    setUserName("");
+    setPassword("");
+    setWrongLogin(true);
   };
 
   const handleChange = (event) => {
-    event.preventDefault();
     const { value, name } = event.target;
     switch (name) {
       case "email":
@@ -58,6 +71,18 @@ const Login = () => {
                 style={{ border: "1px solid black", borderRadius: "0px" }}
                 className="p-4"
               >
+                {wrongLogin && (
+                  <CToast
+                    color="danger"
+                    key={1.2}
+                    show={true}
+                    autohide={6000}
+                    fade={true}
+                  >
+                    <CToastHeader>Erro!</CToastHeader>
+                    <CToastBody>Login ou senha incorreto</CToastBody>
+                  </CToast>
+                )}
                 <CCardBody>
                   <CForm onSubmit={handleLogin} style={{ color: "#231f20" }}>
                     <h1>Login</h1>
@@ -69,10 +94,7 @@ const Login = () => {
                         </CInputGroupText> */}
                       </CInputGroupPrepend>
                       <CInput
-                        style={{
-                          border: "1px solid black",
-                          borderRadius: "4px",
-                        }}
+                        style={inputStyle}
                         name="email"
                         onChange={handleChange}
                         type="text"
@@ -87,10 +109,7 @@ const Login = () => {
                         </CInputGroupText> */}
                       </CInputGroupPrepend>
                       <CInput
-                        style={{
-                          border: "1px solid black",
-                          borderRadius: "4px",
-                        }}
+                        style={inputStyle}
                         name="password"
                         onChange={handleChange}
                         type="password"
@@ -100,12 +119,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs="6">
-                        <CButton
-                          type="submit"
-                          // onClick={handleLogin}
-                          color="primary"
-                          className="px-4"
-                        >
+                        <CButton type="submit" color="primary" className="px-4">
                           Acessar
                         </CButton>
                       </CCol>

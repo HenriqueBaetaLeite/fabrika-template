@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   CBadge,
   CDropdown,
@@ -10,6 +11,12 @@ import {
 import CIcon from "@coreui/icons-react";
 
 const TheHeaderDropdown = () => {
+  const history = useHistory();
+
+  const logout = () => {
+    localStorage.clear("userLogin");
+    history.push("/login");
+  };
   return (
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
@@ -38,6 +45,10 @@ const TheHeaderDropdown = () => {
         <CDropdownItem>
           <CIcon name="cil-user" className="mfe-2" />
           Perfil do Usuário
+        </CDropdownItem>
+        <CDropdownItem onClick={logout}>
+          <CIcon name="cilAccountLogout" className="mfe-2" />
+          Logout
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
