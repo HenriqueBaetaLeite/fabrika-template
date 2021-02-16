@@ -28,5 +28,6 @@ const getProducts = (token) =>
   api.get("/products", { headers: { authorization: token } });
 
 export default {
+  api,
   apiEx,
 };
