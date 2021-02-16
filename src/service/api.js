@@ -27,16 +27,6 @@ const registerApi = async (name, email, password, role) => {
 const getProducts = (token) =>
   api.get("/products", { headers: { authorization: token } });
 
-const userNameUpdateApi = async (name, email, newName) => {
-  const result = await api.put("/profile", {
-    name,
-    email,
-    newName,
-  });
-
-  return result;
-};
-
 export default {
   apiEx,
 };

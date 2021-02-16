@@ -34,7 +34,10 @@ const TheContent = () => {
                 )
               );
             })}
-            <Redirect from="/" to="/login" />
+            <Redirect
+              from="/"
+              to={localStorage.getItem("userLogin") ? "/inicial" : "/login"}
+            />
           </Switch>
         </Suspense>
       </CContainer>

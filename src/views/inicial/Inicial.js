@@ -9,9 +9,6 @@ import {
   CWidgetBrand,
 } from "@coreui/react";
 
-const WidgetsDropdown = lazy(() => import("../widgets/WidgetsDropdown.js"));
-const WidgetsBrand = lazy(() => import("../widgets/WidgetsBrand.js"));
-
 const Inicial = () => {
   return (
     <>

@@ -3,8 +3,6 @@ import ModalTrash from "../../../utils/ModalRecebiveis/ModalTrash";
 import ModalEdit from "../../../utils/ModalRecebiveis/ModalEdit";
 import ModalDescription from "../../../utils/ModalRecebiveis/ModalDescription";
 
-import Table from "../../table/Table";
-
 import {
   CCard,
   CCardBody,

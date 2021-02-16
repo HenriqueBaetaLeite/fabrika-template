@@ -11,7 +11,6 @@ import {
   CInput,
   CInputGroup,
   CInputGroupPrepend,
-  CInputGroupText,
   CRow,
   CToaster,
   CToast,
@@ -36,7 +35,7 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    if (userName === "fabrika" && password === "fabrika") {
+    if (userName === "fabrika@fabrika.com" && password === "fabrika") {
       localStorage.setItem("userLogin", userName);
 
       return history.push("/inicial");
@@ -71,22 +70,23 @@ const Login = () => {
                 style={{ border: "1px solid black", borderRadius: "0px" }}
                 className="p-4"
               >
+                {wrongLogin && (
+                  <CToast
+                    color="danger"
+                    key={1.2}
+                    show={true}
+                    autohide={4000}
+                    fade={true}
+                  >
+                    <CToastHeader>Erro!</CToastHeader>
+                    <CToastBody>Login ou senha incorretos</CToastBody>
+                  </CToast>
+                )}
                 <CCardBody>
                   <CForm onSubmit={handleLogin} style={{ color: "#231f20" }}>
-                    {wrongLogin && (
-                      <CToast
-                        color="danger"
-                        key={1.2}
-                        show={true}
-                        autohide={4000}
-                        fade={true}
-                      >
-                        <CToastHeader>Erro!</CToastHeader>
-                        <CToastBody>Login ou senha incorreto</CToastBody>
-                      </CToast>
-                    )}
                     <h1>Login</h1>
                     <p>Digite seu usuário e senha para acessar o portal</p>
+
                     <CInputGroup className="mb-3">
                       <CInputGroupPrepend>
                         {/* <CInputGroupText>
@@ -97,11 +97,12 @@ const Login = () => {
                         style={inputStyle}
                         name="email"
                         onChange={handleChange}
-                        type="text"
+                        type="email"
                         placeholder="E-mail"
                         required
                       />
                     </CInputGroup>
+
                     <CInputGroup className="mb-4">
                       <CInputGroupPrepend>
                         {/* <CInputGroupText>
@@ -124,9 +125,11 @@ const Login = () => {
                         </CButton>
                       </CCol>
                       <CCol xs="6" className="">
-                        <CButton color="blue" className="px-0">
-                          Esqueci minha senha
-                        </CButton>
+                        <Link to="resetpassword">
+                          <CButton color="blue" className="px-0">
+                            Esqueci minha senha
+                          </CButton>
+                        </Link>
                       </CCol>
                     </CRow>
                   </CForm>

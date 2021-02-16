@@ -29,6 +29,8 @@ const RegisterFinished = React.lazy(() =>
 const Page404 = React.lazy(() => import("./views/pages/page404/Page404"));
 const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
 
+const ResetPassword = React.lazy(() => import("./views/pages/resetPassword/ResetPassword"));
+
 const App = () => (
   <BrowserRouter>
     <React.Suspense fallback={loading}>
@@ -38,6 +40,12 @@ const App = () => (
           path="/login"
           name="Login Page"
           render={(props) => <Login {...props} />}
+        />
+        <Route
+          exact
+          path="/resetpassword"
+          name="Reset Password Page"
+          render={(props) => <ResetPassword {...props} />}
         />
         <Route
           exact
