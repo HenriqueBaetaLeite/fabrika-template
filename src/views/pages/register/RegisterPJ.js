@@ -2,20 +2,14 @@ import React, { useState } from "react";
 import { useHistory, Redirect } from "react-router-dom";
 import {
   CButton,
-  CCard,
-  CCardBody,
-  CCardFooter,
   CCol,
   CContainer,
   CForm,
   CSelect,
   CInput,
   CInputGroup,
-  CInputGroupPrepend,
-  CInputGroupText,
   CRow,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
 
 import logo from "../../../assets/emcash.png";
 import api from "src/service/api";
@@ -61,7 +55,10 @@ const RegisterPJ = () => {
       agencia,
       conta,
     });
-    history.push({ pathname: "/registeroperator", state: { cadastroPJ: nomeFantasia, teste: "será que vem esrt streing?" } });
+    history.push({
+      pathname: "/registeroperator",
+      state: { cadastroPJ: nomeFantasia, teste: "será que vem esrt streing?" },
+    });
   };
 
   return (
