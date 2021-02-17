@@ -29,18 +29,18 @@ const inputStyle = {
 
 const Login = () => {
   const history = useHistory();
-  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [wrongLogin, setWrongLogin] = useState(false);
 
   const handleLogin = (event) => {
     event.preventDefault();
-    if (userName === "fabrika@fabrika.com" && password === "fabrika") {
-      localStorage.setItem("userLogin", userName);
+    if (email === "fabrika@fabrika.com" && password === "fabrika") {
+      localStorage.setItem("userLogin", email);
 
       return history.push("/inicial");
     }
-    setUserName("");
+    setEmail("");
     setPassword("");
     setWrongLogin(true);
   };
@@ -49,7 +49,7 @@ const Login = () => {
     const { value, name } = event.target;
     switch (name) {
       case "email":
-        setUserName(value);
+        setEmail(value);
         break;
       default:
         setPassword(value);
@@ -94,6 +94,7 @@ const Login = () => {
                         </CInputGroupText> */}
                       </CInputGroupPrepend>
                       <CInput
+                        value={email}
                         style={inputStyle}
                         name="email"
                         onChange={handleChange}
@@ -110,6 +111,7 @@ const Login = () => {
                         </CInputGroupText> */}
                       </CInputGroupPrepend>
                       <CInput
+                        value={password}
                         style={inputStyle}
                         name="password"
                         onChange={handleChange}

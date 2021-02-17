@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   CButton,
   CCol,
@@ -20,6 +20,7 @@ const inputStyles = {
 
 const RegisterOperator = () => {
   const history = useHistory();
+  const location = useLocation();
   const [nomeCompleto, setNomeCompleto] = useState("");
   const [email, setEmail] = useState("");
   const [departamento, setDepartamento] = useState("");
@@ -45,6 +46,8 @@ const RegisterOperator = () => {
     console.log("operador", cadastroOperador);
     // history.push("/registerdocs");
   };
+  console.log(location.state);
+
   return (
     <div
       style={{ background: "white" }}

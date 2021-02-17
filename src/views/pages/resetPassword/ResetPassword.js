@@ -23,14 +23,27 @@ const inputStyle = {
   color: "#231f20",
 };
 
-const Login = () => {
+const cardOneStyle = {
+  borderRadius: "0px",
+  border: "1px solid black",
+  width: "44%",
+  background: "#e29b62",
+  color: "black",
+};
+
+const ResetPassword = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [wrongEmail, setWrongEmail] = useState(false);
+  const [successReset, setSuccessReset] = useState(false);
 
   const handleResetPassword = () => {
     alert(email);
     setEmail("");
+  };
+
+  const redirectToLogin = () => {
+    history.push("/login");
   };
 
   return (
@@ -42,16 +55,7 @@ const Login = () => {
         <CRow className="justify-content-center">
           <CCol md="8">
             <CCardGroup>
-              <CCard
-                className="py-5 d-md-down-none"
-                style={{
-                  borderRadius: "0px",
-                  border: "1px solid black",
-                  width: "44%",
-                  background: "black",
-                  color: "white",
-                }}
-              >
+              <CCard className="py-5 d-md-down-none" style={cardOneStyle}>
                 <CCardBody className="d-flex align-items-center text-center">
                   <div>
                     {/* <img src={logo} alt="logo emcash" className="my-3" /> */}
@@ -79,31 +83,42 @@ const Login = () => {
                 )}
                 <CCardBody className="d-flex flex-column">
                   <CForm>
-                    <h3 style={{ color: "#231f20" }}>Esqueceu a senha?</h3>
+                    <h4 style={{ color: "#231f20" }}>
+                      {successReset
+                        ? "Senha resetada com sucesso!"
+                        : "Esqueceu a senha?"}
+                    </h4>
                     <p>
-                      Não se preocupe, vamos mandar uma nova senha no e-mail
-                      cadastrado.
+                      {successReset
+                        ? "Por favor verifique o seu e-mail para conseguir a nova senha."
+                        : "Não se preocupe, vamos mandar uma nova senha no e-mail cadastrado."}
                     </p>
 
-                    <label style={{ color: "black" }}>E-mail</label>
-                    <CInputGroup className="mb-3">
-                      <CInput
-                        value={email}
-                        style={inputStyle}
-                        name="email"
-                        onChange={(event) => setEmail(event.target.value)}
-                        type="email"
-                        placeholder="user@emcashcapital.com.br"
-                        required
-                      />
-                    </CInputGroup>
+                    {successReset ? null : (
+                      <>
+                        <label style={{ color: "black" }}>E-mail</label>
+                        <CInputGroup className="mb-3">
+                          <CInput
+                            value={email}
+                            style={inputStyle}
+                            name="email"
+                            onChange={(event) => setEmail(event.target.value)}
+                            type="email"
+                            placeholder="user@emcashcapital.com.br"
+                            required
+                          />
+                        </CInputGroup>
+                      </>
+                    )}
                   </CForm>
                   <CButton
                     type="button"
-                    color="info"
-                    onClick={handleResetPassword}
+                    color="primary"
+                    onClick={
+                      successReset ? redirectToLogin : handleResetPassword
+                    }
                   >
-                    Enviar
+                    {successReset ? "Volta ao Login" : "Enviar"}
                   </CButton>
                 </CCardBody>
               </CCard>
@@ -115,4 +130,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;

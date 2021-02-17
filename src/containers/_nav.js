@@ -49,11 +49,11 @@ const _nav = [
         to: "/recebiveis",
         // icon: "cil-dollar",
       },
-      {
-        _tag: "CSidebarNavItem",
-        name: "teste tabela com botão",
-        to: "/recebiveis/testes",
-      },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "teste tabela com botão",
+      //   to: "/recebiveis/testes",
+      // },
     ],
   },
   {

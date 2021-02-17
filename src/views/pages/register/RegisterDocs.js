@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import {
-  CButton,
-  CCol,
-  CContainer,
-  CForm,
-  CInputGroup,
-  CRow,
-} from "@coreui/react";
+import { CButton, CContainer, CForm, CInputGroup } from "@coreui/react";
 
 import CIcon from "@coreui/icons-react";
 
@@ -18,7 +11,7 @@ const RegisterDocs = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('fui...');
+
     history.push("/registerfinished");
   };
   return (
@@ -30,7 +23,12 @@ const RegisterDocs = () => {
         <img src={logo} alt="logo" width="200px" />
         <h3 className="text-center my-4">Documentação necessária</h3>
 
-        <CForm method="post" action="/registerdocs" onSubmit={handleSubmit} className="mx-auto my-3">
+        <CForm
+          method="post"
+          action="/registerdocs"
+          onSubmit={handleSubmit}
+          className="mx-auto my-3"
+        >
           <CInputGroup>
             <h2>Documentos dos sócios</h2>
             <label htmlFor="docs-socios">

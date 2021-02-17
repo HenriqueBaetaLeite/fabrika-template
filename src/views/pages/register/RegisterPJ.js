@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import {
   CButton,
   CCard,
@@ -18,6 +18,7 @@ import {
 import CIcon from "@coreui/icons-react";
 
 import logo from "../../../assets/emcash.png";
+import api from "src/service/api";
 
 const inputStyles = {
   border: "1px solid black",
@@ -45,7 +46,7 @@ const RegisterPJ = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("submit!!");
-    await setCadastroPJ({
+    setCadastroPJ({
       nomeFantasia,
       razaoSocial,
       cnpj,
@@ -60,10 +61,8 @@ const RegisterPJ = () => {
       agencia,
       conta,
     });
+    history.push({ pathname: "/registeroperator", state: { cadastroPJ: nomeFantasia, teste: "será que vem esrt streing?" } });
   };
-
-  console.log("primeiro log!", nomeFantasia);
-  console.log("pj", cadastroPJ);
 
   return (
     <div
@@ -75,159 +74,146 @@ const RegisterPJ = () => {
         <h3 className="text-center my-4">Cadastro PJ portal EmCash</h3>
         <CRow className="d-flex justify-content-center">
           <CCol md="9" lg="7" xl="6">
-            <CForm
-              autoComplete={false}
-              onSubmit={handleSubmit}
-              className="d-flex justify-content-around"
-            >
-              <div>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="nome-fantasia"
-                    type="text"
-                    placeholder="Nome Fantasia"
-                    required
-                    onChange={(event) => setNomeFantasia(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="razao-social"
-                    type="text"
-                    placeholder="Razão Social"
-                    onChange={(event) => setRazaoSocial(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="cnpj"
-                    type="number"
-                    placeholder="CNPJ"
-                    onChange={(event) => setCnpj(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="data-fundacao"
-                    type="date"
-                    placeholder="Data fundação"
-                    onChange={(event) => setDataFundacao(event.target.value)}
-                  />
-                </CInputGroup>
+            <CForm autoComplete={false} onSubmit={handleSubmit}>
+              <div className="d-flex justify-content-around">
+                <div>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="nome-fantasia"
+                      type="text"
+                      placeholder="Nome Fantasia"
+                      required
+                      onChange={(event) => setNomeFantasia(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="razao-social"
+                      type="text"
+                      placeholder="Razão Social"
+                      required
+                      onChange={(event) => setRazaoSocial(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="cnpj"
+                      type="number"
+                      placeholder="CNPJ"
+                      required
+                      onChange={(event) => setCnpj(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="data-fundacao"
+                      type="date"
+                      placeholder="Data fundação"
+                      required
+                      onChange={(event) => setDataFundacao(event.target.value)}
+                    />
+                  </CInputGroup>
+                </div>
+                <div>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="cep"
+                      type="number"
+                      placeholder="CEP"
+                      required
+                      onChange={(event) => setCep(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="logradouro"
+                      type="text"
+                      placeholder="Logradouro"
+                      required
+                      onChange={(event) => setLogradouro(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="bairro"
+                      type="text"
+                      placeholder="Bairro"
+                      required
+                      onChange={(event) => setBairro(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="complemento"
+                      type="text"
+                      placeholder="Complemento"
+                      onChange={(event) => setComplemento(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="cidade"
+                      type="text"
+                      placeholder="Cidade"
+                      required
+                      onChange={(event) => setCidade(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="uf"
+                      type="text"
+                      placeholder="UF"
+                      required
+                      onChange={(event) => setUf(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="banco"
+                      type="text"
+                      placeholder="Banco"
+                      onChange={(event) => setBanco(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="agencia"
+                      type="number"
+                      placeholder="Agência"
+                      onChange={(event) => setAgencia(event.target.value)}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInput
+                      style={inputStyles}
+                      name="conta"
+                      type="number"
+                      placeholder="Conta"
+                      onChange={(event) => setConta(event.target.value)}
+                    />
+                  </CInputGroup>
+                </div>
               </div>
-              <div>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="cep"
-                    type="number"
-                    placeholder="CEP"
-                    onChange={(event) => setCep(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="logradouro"
-                    type="text"
-                    placeholder="Logradouro"
-                    onChange={(event) => setLogradouro(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="bairro"
-                    type="text"
-                    placeholder="Bairro"
-                    onChange={(event) => setBairro(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="complemento"
-                    type="text"
-                    placeholder="Complemento"
-                    onChange={(event) => setComplemento(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="cidade"
-                    type="text"
-                    placeholder="Cidade"
-                    onChange={(event) => setCidade(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  {/* <CSelect
-                  placeholder="UF"
-                    value="oi"
-                    options={[
-                      { value: "js", label: "JavaScript" },
-                      { value: "html", label: "HTML" },
-                    ]}
-                    style={inputStyles}
-                    name="uf"
-                    type="text"
-                    placeholder="UF"
-                    onChange={(event) => setUf(event.target.value)}
-                  ></CSelect> */}
-                  <CInput
-                    style={inputStyles}
-                    name="uf"
-                    type="text"
-                    placeholder="UF"
-                    onChange={(event) => setUf(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="banco"
-                    type="text"
-                    placeholder="Banco"
-                    onChange={(event) => setBanco(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="agencia"
-                    type="number"
-                    placeholder="Agência"
-                    onChange={(event) => setAgencia(event.target.value)}
-                  />
-                </CInputGroup>
-                <CInputGroup className="mb-3">
-                  <CInput
-                    style={inputStyles}
-                    name="conta"
-                    type="number"
-                    placeholder="Conta"
-                    onChange={(event) => setConta(event.target.value)}
-                  />
-                </CInputGroup>
+              <div className="text-center">
+                <CButton type="submit" className="mx-auto my-4" color="primary">
+                  Continuar
+                </CButton>
               </div>
             </CForm>
           </CCol>
-        </CRow>
-        <CRow>
-          <CButton
-            type="submit"
-            // onClick={() => history.push("/registeroperator")}
-            onClick={handleSubmit}
-            className="mx-auto my-4"
-            color="primary"
-          >
-            Continuar
-          </CButton>
         </CRow>
       </CContainer>
     </div>
